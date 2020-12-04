@@ -4,7 +4,7 @@
 
 ## **Explain project**  
   
-**This Project included two project with two app separated in Django rest framework is for crawler twitter and location finder with postgis that we send polygon points to query and query get records that inside its polygon **  
+**This Project included two project with two app separated in Django rest framework is for crawler twitter and location finder with postgis that we send polygon points to query and query get records that inside its polygon**  
   
 **Architecture**  
 I used of Design Patterns  **Strategy and Repository And Factory**  
