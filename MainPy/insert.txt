@@ -1,0 +1,9 @@
+﻿initdb --locale="Persian_Iran" --encoding=UTF8 --pgdata="..\data"
+
+5.8007813, 34.4522185
+ long --   --lat
+
+
+
+ INSERT INTO itapp_cities(city_id, city_name, slug, state_id, location) 
+  VALUES (DEFAULT,'Ada', 'ada-ok',37,st_GeomFromText('POINT(34.774531000000003 -96.678344899999999)', 312));
