@@ -1,7 +1,6 @@
 # Twitter_and_Locations_gis
 
 
-# Twitter_and_Locations_gis
 
 ## **Explain project**  
   
