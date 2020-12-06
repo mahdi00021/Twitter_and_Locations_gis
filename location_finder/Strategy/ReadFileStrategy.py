@@ -17,6 +17,7 @@ class ReadFileStrategy(Strategy):
         for line in lines:
                 DoWorkLocations.add_queue(line)
 
+
         if DoWorkLocations.doing() is True:
             return DoWorkLocations.get_data()
         else:

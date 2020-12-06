@@ -27,7 +27,7 @@ class DoWorkLocations:
 
     @staticmethod
     def worker():
-        while True:
+        for i in range(DoWorkLocations.len):
             item = DoWorkLocations.q.get()
             if item is None:
                 break
@@ -37,7 +37,7 @@ class DoWorkLocations:
     @staticmethod
     def doing():
 
-        for i in range(DoWorkLocations.len):
+        for i in range(1):
             t = threading.Thread(target=DoWorkLocations.worker)
             t.start()
             DoWorkLocations.threads.append(t)
