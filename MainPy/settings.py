@@ -131,6 +131,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-PROXY_URL = '127.0.0.1:1070'
+PROXY_URL = '127.0.0.1:1869'
 
 mongoengine.connect(db='tweets', host='127.0.0.1', username='', password='')

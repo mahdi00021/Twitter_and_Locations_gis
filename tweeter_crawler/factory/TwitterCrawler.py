@@ -3,6 +3,7 @@ from datetime import datetime
 
 from MainPy.settings import PROXY_URL
 from OrmMongodbRepository.OrmRepository import OrmRepository
+from ThraedsAndQueue.DoWorkTwitter import DoWorkTwitter
 from tools.Tools import Tools
 from tweeter_crawler.factory.IFactorySocial import IFactorySocial
 import time
@@ -17,10 +18,10 @@ class TwitterCrawler(IFactorySocial):
     @staticmethod
     def read_and_save(request):
 
-        consumer_key = ""
-        consumer_secret = ""
-        access_token = ""
-        access_token_secret = ""
+        consumer_key = "5TePwf01HoOKPI6B5fv0i9NIs"
+        consumer_secret = "r575hXaJ8Nk3Wkd9l0a7PPRHFSnurICLmawW0xUGDic1WmCs3J"
+        access_token = "2186714268-sEsrNinrPuCKqEHLGgQVKHy1Mt7qbroKCxn3X5Q"
+        access_token_secret = "U0Ic59YbAd2iZUsOCxq12SaQDfd6v2TBynPwltuXUOfQI"
 
         tweets = []
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -61,7 +62,7 @@ class TwitterCrawler(IFactorySocial):
                            }
                         tweets.append(json_make_with_media)
                         url_video = ""
-                        OrmRepository.insert(json_make_with_media)
+                        DoWorkTwitter.add_qeueu( json_make_with_media)
 
                     else:
                         json_make = {
@@ -73,9 +74,10 @@ class TwitterCrawler(IFactorySocial):
                             "created_at": str(tweet.created_at)
                         }
                         tweets.append(json_make)
+                        DoWorkTwitter.add_qeueu(json_make)
 
-                        OrmRepository.insert(json_make)
-
+        DoWorkTwitter.len = len(tweets)
+        DoWorkTwitter.doing()
         return tweets
 
     # save images in drive from binary field database

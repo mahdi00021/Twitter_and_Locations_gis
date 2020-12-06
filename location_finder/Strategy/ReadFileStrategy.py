@@ -1,3 +1,4 @@
+from ThraedsAndQueue.DoWorkLocations import DoWorkLocations
 from location_finder.Strategy.Strategy import Strategy
 from location_finder.models import LocationM
 from location_finder.serializers import LocationMSerializer
@@ -12,10 +13,11 @@ class ReadFileStrategy(Strategy):
         data_serializer = []
         file = open(name_file, 'r')
         lines = file.readlines()
-
+        DoWorkLocations.len = len(lines)
         for line in lines:
-                raw_query = """SELECT id ,latitude, name_point,longitude FROM location_finder_locationm WHERE ST_Contains( ST_SetSRID( 'POLYGON(( """+ line +""" ))'::GEOMETRY, 4326 ), the_geom );"""
-                cursor = LocationM.objects.raw(raw_query)
-                data_serializer = LocationMSerializer(cursor, many=True).data
+                DoWorkLocations.add_queue(line)
 
-        return data_serializer
+        if DoWorkLocations.doing() is True:
+            return DoWorkLocations.get_data()
+        else:
+            return data_serializer

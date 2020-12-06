@@ -14,7 +14,8 @@ class OrmRepository:
             Tweet(tweet_id=int(data['tweet_id']), username=data['username'], type=data['type'],
                   media=data['media'], binary_file=Tools.download_file(data['media']),
                   text=str(data['text']), created_at=str(data['created_at'])).save()
-            print("-------------inserted-----------")
+            return True
+            #print("-------------inserted-----------")
     # read data from mongodb
     # return list of json data
     @staticmethod
