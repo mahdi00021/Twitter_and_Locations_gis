@@ -18,10 +18,10 @@ class TwitterCrawler(IFactorySocial):
     @staticmethod
     def read_and_save(request):
 
-        consumer_key = "5TePwf01HoOKPI6B5fv0i9NIs"
-        consumer_secret = "r575hXaJ8Nk3Wkd9l0a7PPRHFSnurICLmawW0xUGDic1WmCs3J"
-        access_token = "2186714268-sEsrNinrPuCKqEHLGgQVKHy1Mt7qbroKCxn3X5Q"
-        access_token_secret = "U0Ic59YbAd2iZUsOCxq12SaQDfd6v2TBynPwltuXUOfQI"
+        consumer_key = ""
+        consumer_secret = ""
+        access_token = ""
+        access_token_secret = ""
 
         tweets = []
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
